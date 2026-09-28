@@ -14,10 +14,11 @@
 // (Or set them in Project Settings -> Script Properties for higher security)
 var CONFIG = {
   TELEGRAM_BOT_TOKEN: "YOUR_TELEGRAM_BOT_TOKEN", // Example: 123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ
-  TELEGRAM_CHAT_ID: "YOUR_TELEGRAM_CHAT_ID",     // Example: -1001234567890 (group) or 12345678 (user)
+  // Можно указать одного или нескольких получателей: ["364289308", "ВТОРОЙ_CHAT_ID"] или строку через запятую "id1, id2"
+  TELEGRAM_CHAT_IDS: ["YOUR_TELEGRAM_CHAT_ID_1", "YOUR_TELEGRAM_CHAT_ID_2"],
   SHEET_NAME: "Leads",                           // Name of tab in Google Sheet
   TIMEZONE: "Asia/Tashkent",                     // Tashkent local time
-  DATE_FORMAT: "dd.MM.yyyy, HH:mm:ss"            // Format: День.Месяц.Год, Время (e.g. 28.09.2026, 10:55:56)
+  DATE_FORMAT: "yyyy-MM-dd HH:mm:ss"             // Format: YYYY-MM-DD HH:mm:ss
 };
 
 /**
@@ -150,14 +151,14 @@ function recordToGoogleSheet(rowData) {
  */
 function sendTelegramNotification(lead) {
   var botToken = getSetting("TELEGRAM_BOT_TOKEN");
-  var chatId = getSetting("TELEGRAM_CHAT_ID");
+  var chatIds = getChatIdsList();
 
   if (!botToken || botToken === "YOUR_TELEGRAM_BOT_TOKEN") {
     Logger.log("Telegram Bot Token is not configured. Skipping Telegram dispatch.");
     return;
   }
-  if (!chatId || chatId === "YOUR_TELEGRAM_CHAT_ID") {
-    Logger.log("Telegram Chat ID is not configured. Skipping Telegram dispatch.");
+  if (!chatIds || chatIds.length === 0) {
+    Logger.log("No Telegram Chat IDs configured. Skipping Telegram dispatch.");
     return;
   }
 
@@ -175,26 +176,41 @@ function sendTelegramNotification(lead) {
     "⚡️ <i>Iltimos, mijoz bilan 15 daqiqa ichida bog'laning!</i>";
 
   var url = "https://api.telegram.org/bot" + botToken + "/sendMessage";
-  var payload = {
-    chat_id: chatId,
-    text: message,
-    parse_mode: "HTML",
-    disable_web_page_preview: true
-  };
 
-  var options = {
-    method: "post",
-    contentType: "application/json",
-    payload: JSON.stringify(payload),
-    muteHttpExceptions: true
-  };
+  chatIds.forEach(function(chatId) {
+    if (!chatId || chatId.indexOf("YOUR_") === 0) return;
 
-  try {
-    var response = UrlFetchApp.fetch(url, options);
-    Logger.log("Telegram response: " + response.getContentText());
-  } catch (err) {
-    Logger.log("Failed to send Telegram message: " + err.toString());
-  }
+    var payload = {
+      chat_id: chatId.trim(),
+      text: message,
+      parse_mode: "HTML",
+      disable_web_page_preview: true
+    };
+
+    var options = {
+      method: "post",
+      contentType: "application/json",
+      payload: JSON.stringify(payload),
+      muteHttpExceptions: true
+    };
+
+    try {
+      var response = UrlFetchApp.fetch(url, options);
+      Logger.log("Telegram response for " + chatId + ": " + response.getContentText());
+    } catch (err) {
+      Logger.log("Failed to send Telegram message to " + chatId + ": " + err.toString());
+    }
+  });
+}
+
+/**
+ * Extracts list of Chat IDs from Array or comma-separated string
+ */
+function getChatIdsList() {
+  var raw = getSetting("TELEGRAM_CHAT_IDS") || getSetting("TELEGRAM_CHAT_ID");
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw.map(function(id) { return id.toString().trim(); });
+  return raw.toString().split(",").map(function(id) { return id.trim(); }).filter(Boolean);
 }
 
 /**
