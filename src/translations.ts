@@ -61,7 +61,6 @@ export interface TranslationDictionary {
   nav: {
     services: string;
     partners: string;
-    calculator: string;
     licenses: string;
     process: string;
     contacts: string;
@@ -78,7 +77,6 @@ export interface TranslationDictionary {
     titleHighlight: string;
     titleEnd: string;
     subtitle: string;
-    ctaCalculate: string;
     ctaTelegram: string;
     ctaForm: string;
     btnSubmitLead: string;
@@ -112,43 +110,6 @@ export interface TranslationDictionary {
     items: ServiceItem[];
   };
   partners: PartnersSection;
-  calculator: {
-    sectionTag: string;
-    title: string;
-    subtitle: string;
-    modalTitle: string;
-    step1Title: string;
-    step1Desc: string;
-    step2Title: string;
-    step2Desc: string;
-    step3Title: string;
-    step3Desc: string;
-    wasteTypes: {
-      medical: string;
-      industrial: string;
-      chemical: string;
-      expired: string;
-      mercury: string;
-      construction: string;
-    };
-    unitKg: string;
-    unitTons: string;
-    unitCubic: string;
-    frequencyOneTime: string;
-    frequencyMonthly: string;
-    frequencyContract: string;
-    companyLabel: string;
-    nameLabel: string;
-    phoneLabel: string;
-    volumeLabel: string;
-    calculatedEstimate: string;
-    estimateNote: string;
-    btnNext: string;
-    btnBack: string;
-    btnSubmit: string;
-    btnCalculating: string;
-    quickSummary: string;
-  };
   licenses: {
     sectionTag: string;
     title: string;
@@ -227,7 +188,6 @@ export const translations: Record<Language, TranslationDictionary> = {
     nav: {
       services: "Xizmatlar",
       partners: "Hamkorlar",
-      calculator: "Kalkulyator",
       licenses: "Litsenziyalar",
       process: "Bosqichlar",
       contacts: "Bog'lanish",
@@ -244,7 +204,6 @@ export const translations: Record<Language, TranslationDictionary> = {
       titleHighlight: "utilizatsiya qilish",
       titleEnd: " va zararsizlantirish",
       subtitle: "Foydalanishdan chiqarilgan va eskirgan IT-uskunalar, elektronika hamda orgtexnikalarni litsenziya asosida xavfsiz utilizatsiya qilish va hisobdan chiqarish (spisaniye). Defekt akti va Didox orqali 100% rasmiy hujjatlar.",
-      ctaCalculate: "Narxni hisoblash",
       ctaTelegram: "Telegram orqali bog'lanish",
       ctaForm: "Shartnoma tuzish",
       btnSubmitLead: "Ariza qoldirish",
@@ -386,43 +345,6 @@ export const translations: Record<Language, TranslationDictionary> = {
           badge: "G'aznachilik organi",
         },
       ],
-    },
-    calculator: {
-      sectionTag: "Tezkor onlayn hisob-kitob",
-      title: "Chiqindilarni utilizatsiya qilish xarajatini hisoblang",
-      subtitle: "3 ta oddiy qadamda chiqindi turini va hajmini belgilang, biz sizga daqiqalar ichida aniq tijoriy taklif taqdim etamiz.",
-      modalTitle: "Interaktiv narx kalkulyatori",
-      step1Title: "1-qadam: Chiqindi toifasini tanlang",
-      step1Desc: "Korxonangizda hosil bo'lgan asosiy chiqindi guruhini belgilang",
-      step2Title: "2-qadam: Chiqindi hajmi va chastotasini tanlang",
-      step2Desc: "Taxminiy oylik yoki bir martalik utilizatsiya hajmini ko'rsating",
-      step3Title: "3-qadam: Ma'lumotlarni yuboring va hisob-kitobni oling",
-      step3Desc: "Didox orqali rasmiy smeta va shartnoma loyihasi uchun kontaktlaringizni kiriting",
-      wasteTypes: {
-        medical: "Tibbiyot va farmatsevtika chiqindilari (A, B, V, G toifa)",
-        industrial: "Sanoat chiqindilari, shlamlar va filtrlari",
-        chemical: "Xavfli kimyo, ishlatilgan moy va kislotalar",
-        expired: "Muddati o'tgan tovarlar va bojxona chiqindilari",
-        mercury: "Simobli lampalar, priborlar va orgtexnika",
-        construction: "Alohida texnik va qurilish chiqindilari",
-      },
-      unitKg: "kg",
-      unitTons: "tonna",
-      unitCubic: "m³",
-      frequencyOneTime: "Bir martalik tozalash",
-      frequencyMonthly: "Doimiy oylik reja",
-      frequencyContract: "Yillik korporativ xizmat",
-      companyLabel: "Kompaniya nomi (YATT yoki MChJ)",
-      nameLabel: "Mas'ul shaxs ismi",
-      phoneLabel: "Telefon raqami",
-      volumeLabel: "Chiqindi miqdori:",
-      calculatedEstimate: "Taxminiy asosiy narx diapazoni:",
-      estimateNote: "* Yakuniy narx chiqindining aniq tarkibi, laboratoriya tahlili va transport masofasiga qarab aniqlashtiriladi.",
-      btnNext: "Keyingi bosqich",
-      btnBack: "Orqaga",
-      btnSubmit: "Rasmiy smetani olish",
-      btnCalculating: "Hisoblanmoqda...",
-      quickSummary: "Tanlangan parametrlar:",
     },
     licenses: {
       sectionTag: "Rasmiy Davlat Litsenziyasi va Tavsiyanoma",
@@ -572,7 +494,6 @@ export const translations: Record<Language, TranslationDictionary> = {
     nav: {
       services: "Услуги",
       partners: "Партнеры",
-      calculator: "Калькулятор",
       licenses: "Лицензии",
       process: "Этапы",
       contacts: "Контакты",
@@ -589,7 +510,6 @@ export const translations: Record<Language, TranslationDictionary> = {
       titleHighlight: "утилизация и обезвреживание",
       titleEnd: " отходов в Узбекистане",
       subtitle: "Официальная утилизация и списание выбывшей из эксплуатации техники и оборудования IV–V классов опасности. Извлечение лома черных, цветных и драгоценных металлов по лицензии Пробирной Палаты РУз с выдачей дефектного акта.",
-      ctaCalculate: "Рассчитать стоимость",
       ctaTelegram: "Связаться в Telegram",
       ctaForm: "Заключить договор",
       btnSubmitLead: "Оставить заявку",
@@ -731,43 +651,6 @@ export const translations: Record<Language, TranslationDictionary> = {
           badge: "Казначейство",
         },
       ],
-    },
-    calculator: {
-      sectionTag: "Быстрый онлайн-расчет",
-      title: "Рассчитайте стоимость утилизации отходов",
-      subtitle: "Выберите категорию и объем отходов в 3 простых шага, и мы подготовим персональное коммерческое предложение.",
-      modalTitle: "Интерактивный калькулятор утилизации",
-      step1Title: "Шаг 1: Выберите тип отходов",
-      step1Desc: "Укажите основную категорию отходов вашего предприятия",
-      step2Title: "Шаг 2: Укажите объём и периодичность",
-      step2Desc: "Задайте примерный вес или объем и регулярность вывоза",
-      step3Title: "Шаг 3: Контакты для отправки сметы",
-      step3Desc: "Введите реквизиты компании для отправки проекта договора через Didox",
-      wasteTypes: {
-        medical: "Медицинские и фармацевтические отходы (Классы А, Б, В, Г)",
-        industrial: "Промышленные шламы, фильтры и твердые остатки",
-        chemical: "Отработанные масла, растворители, кислоты и химия",
-        expired: "Просроченные товары, косметика и таможенные грузы",
-        mercury: "Ртутные люминесцентные лампы и оргтехника",
-        construction: "Специфические строительные и тех-отходы",
-      },
-      unitKg: "кг",
-      unitTons: "тонн",
-      unitCubic: "м³",
-      frequencyOneTime: "Разовый вывоз",
-      frequencyMonthly: "Ежемесячный график",
-      frequencyContract: "Годовой корпоративный контракт",
-      companyLabel: "Название организации (ООО, СП, ЧП)",
-      nameLabel: "Контактное лицо",
-      phoneLabel: "Номер телефона",
-      volumeLabel: "Объем отходов:",
-      calculatedEstimate: "Ориентировочная базовая стоимость:",
-      estimateNote: "* Точная стоимость формируется на основе лабораторного анализа состава и расстояния транспортировки.",
-      btnNext: "Следующий шаг",
-      btnBack: "Назад",
-      btnSubmit: "Получить официальную смету",
-      btnCalculating: "Расчет...",
-      quickSummary: "Выбранные параметры:",
     },
     licenses: {
       sectionTag: "Государственная лицензия и рекомендация",
@@ -917,7 +800,6 @@ export const translations: Record<Language, TranslationDictionary> = {
     nav: {
       services: "Services",
       partners: "Partners",
-      calculator: "Calculator",
       licenses: "Licenses",
       process: "Process",
       contacts: "Contacts",
@@ -934,7 +816,6 @@ export const translations: Record<Language, TranslationDictionary> = {
       titleHighlight: "waste disposal & recycling",
       titleEnd: " across Uzbekistan",
       subtitle: "Certified disposal and write-off of decommissioned IT hardware, electronics, and office equipment. Precious and non-ferrous metal recovery under State Assay Chamber license with full defect documentation.",
-      ctaCalculate: "Calculate Cost",
       ctaTelegram: "Contact via Telegram",
       ctaForm: "Sign Agreement",
       btnSubmitLead: "Submit Request",
@@ -1076,43 +957,6 @@ export const translations: Record<Language, TranslationDictionary> = {
           badge: "Treasury Authority",
         },
       ],
-    },
-    calculator: {
-      sectionTag: "Instant Online Estimation",
-      title: "Calculate Your Waste Disposal Budget",
-      subtitle: "Select waste parameters in 3 simple steps to receive an accurate commercial proposal.",
-      modalTitle: "Interactive Waste Calculator",
-      step1Title: "Step 1: Choose Waste Category",
-      step1Desc: "Select the primary category of waste generated by your facility",
-      step2Title: "Step 2: Define Volume & Frequency",
-      step2Desc: "Set your estimated quantity and collection frequency",
-      step3Title: "Step 3: Company Details for Proposal",
-      step3Desc: "Enter contact details to receive a formal invoice draft via Didox",
-      wasteTypes: {
-        medical: "Medical & Pharmaceutical Waste (Classes A, B, C, D)",
-        industrial: "Industrial Sludge, Ash & Production By-products",
-        chemical: "Hazardous Chemical Solvents, Acids & Oils",
-        expired: "Expired Retail Goods & Customs Rejections",
-        mercury: "Mercury Fluorescent Lamps & Electronic Equipment",
-        construction: "Technical Construction & Demolition Debris",
-      },
-      unitKg: "kg",
-      unitTons: "tons",
-      unitCubic: "m³",
-      frequencyOneTime: "One-time collection",
-      frequencyMonthly: "Scheduled monthly plan",
-      frequencyContract: "Annual corporate contract",
-      companyLabel: "Company Name (LLC, JV, Corp)",
-      nameLabel: "Contact Person & Title",
-      phoneLabel: "Phone Number",
-      volumeLabel: "Estimated volume:",
-      calculatedEstimate: "Estimated Baseline Pricing Range:",
-      estimateNote: "* Final pricing is confirmed following laboratory sample analysis and transit distance verification.",
-      btnNext: "Next Step",
-      btnBack: "Back",
-      btnSubmit: "Get Official Proposal",
-      btnCalculating: "Calculating...",
-      quickSummary: "Selected parameters:",
     },
     licenses: {
       sectionTag: "Official State License & Recommendation",
